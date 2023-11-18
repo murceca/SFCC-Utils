@@ -3,8 +3,12 @@ const Logger = require('dw/system/Logger');
 /**
  * Parses stringified JSON value. Never throws any exceptions,
  * but outputs JSON parsing errors into logs.
- * @param {string} jsonString - JSON string
- * @returns {object|null} parsed JSON value or `null`
+ * 
+ * @param {string} jsonString - JSON string.
+ * @returns {object|null} - Parsed JSON value or `null`.
+ * 
+ * @example
+ * parseJSON('{"countryCode":"CZ"}');
  */
 const parseJSON = (jsonString) => {
   let jsonObject = null;

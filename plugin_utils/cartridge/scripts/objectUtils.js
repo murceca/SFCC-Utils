@@ -9,6 +9,7 @@ const Logger = require('dw/system/Logger');
  * 
  * @example
  * parseJSON('{"countryCode":"CZ"}');
+ * // {"countryCode":"CZ"}
  */
 const parseJSON = (jsonString) => {
   let jsonObject = null;

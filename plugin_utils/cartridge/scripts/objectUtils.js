@@ -58,5 +58,6 @@ const get = (obj, path) => {
 }
 
 module.exports = {
-  parseJSON
+  parseJSON,
+  get
 };

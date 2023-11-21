@@ -24,6 +24,7 @@ const parseJSON = (jsonString) => {
 
 /**
  * Retrieves a property from an object based on the provided path.
+ * Never throws any exceptions, but outputs retrieving property errors into logs.
  * 
  * @param {object} obj - The object from which to retrieve the property.
  * @param {string} path - The path to the desired property.
@@ -54,7 +55,7 @@ const get = (obj, path) => {
       }
     }, obj);
   } catch (error) {
-    return undefined;
+    Logger.error(error);
   }
 }
 

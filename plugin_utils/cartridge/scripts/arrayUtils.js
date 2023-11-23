@@ -31,6 +31,63 @@ const unique = (array, callback) => {
   return uniqueValues;
 };
 
+/**
+ * Flattens an array of arrays into a single-dimensional array.
+ * 
+ * @param {array} arrays - The array of arrays to flatten.
+ * @returns {array} - The flattened array.
+ * 
+ * @example
+ * flatten([['DE', 'CZ'], 'US', ['BE'], ['DK', 'NL']]);
+ * ['DE', 'CZ', 'US', 'BE', 'DK', 'NL']
+ */
+const flatten = (arrays) => {
+  const flattenedArray = [];
+  arrays.forEach(item => {
+    if (Array.isArray(item)) {
+      Array.prototype.push.apply(flattenedArray, item);
+    } else {
+      flattenedArray.push(item);
+    }
+  });
+  return flattenedArray;
+}
+
+/**
+ * Finds the difference between an array and one or more arrays.
+ * 
+ * @param {Array} primaryArray - The primary array to compare.
+ * @param {...Array} arraysToCompare - One or more arrays to compare with the primary array.
+ * @returns {Array} - An array containing the values that are present in the primary array
+ * but not in any of the arrays to compare.
+ * 
+ * @example
+ * difference(['DE', 'CZ', 'GB', 'DK'], ['DE', 'BE'], ['DK', 'NL', 'EE']);
+ * ['CZ', 'GB']
+ */
+function difference() {
+  const primaryArray = arguments[0];
+  const arraysToCompare = [];
+  for (let index = 1; index < arguments.length; index++) {
+    let arg = arguments[index];
+    if (Array.isArray(arg)) {
+      arraysToCompare.push(arg);
+    }
+  }
+  const flattenedArray = flatten(arraysToCompare);
+  const diffArray = [];
+  primaryArray.forEach(item => {
+    const diffValue = !flattenedArray.includes(item);
+    if (diffValue) {
+      diffArray.push(item);
+    }
+  });
+  return diffArray;
+};
+
+
 module.exports = {
-  unique
+  unique,
+  flatten,
+  difference
 };

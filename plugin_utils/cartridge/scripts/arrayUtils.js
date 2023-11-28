@@ -10,10 +10,10 @@
  * on the provided array.
  * 
  * @example
- * unique(['DE', 'BE', 'DE', 'CZ','NL', 'DK', 'NL', 'EE']);
+ * unique(['DE', 'BE', 'DE', 'CZ', 'NL', 'DK', 'NL', 'EE']);
  * // [ 'DE', 'BE', 'CZ', 'NL', 'DK', 'EE' ]
  * 
- * unique(['DE', 'BE', 'DE', 'CZ','NL', 'DK', 'NL', 'EE'], item => item[0]);
+ * unique(['DE', 'BE', 'DE', 'CZ', 'NL', 'DK', 'NL', 'EE'], item => item[0]);
  * // [ 'DE', 'BE', 'CZ', 'NL', 'EE' ]
  */
 const unique = (array, callback) => {

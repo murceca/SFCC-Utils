@@ -16,14 +16,14 @@ describe('unique', () => {
   });
 
   it('number values', () => {
-    const expectedResult = [10, 4, 42, 0, 10, -42, 4, 8, 0, 8];
-    const actualResult = unique([ 10, 4, 42, 0, -42, 8]);
+    const expectedResult = [ 10, 4, 42, 0, -42, 8];
+    const actualResult = unique([10, 4, 42, 0, 10, -42, 4, 8, 0, 8]);
     expect(actualResult).to.eql(expectedResult);
   });
 
   it('mixed primitive values', () => {
     const expectedResult = [
-      10, 'DE', true, 42, null, 0, -42, 'ES', 8, false
+      10, 'DE', true, 42, null, 0, -42, 'ES', false
     ];
     const actualResult = unique([
       10, 'DE', true, 42, null, 0, 10, -42, 'DE', 'ES', 0, 'ES', null, true, false

@@ -20,7 +20,7 @@ const unique = (array, callback) => {
   const uniqueValues = [];
   array.forEach(item => {
     const value = callback ? callback(item) : item;
-    const isUnique = !uniqueValues.find(uniqueItem => {
+    const isUnique = !uniqueValues.some(uniqueItem => {
       const returnedValue = callback ? callback(uniqueItem) : uniqueItem;
       return returnedValue === value;
     });

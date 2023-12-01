@@ -102,8 +102,50 @@ const pick = function() {
   return newObject;
 }
 
+/**
+ * Recursively checks if two objects are equal.
+ *
+ * @param {object} obj1 - The first object to compare.
+ * @param {object} obj2 - The second object to compare.
+ * @returns {boolean} Returns `true` if the objects are  equal, `false` otherwise.
+ * 
+ * @example
+ * isEqual({id: 1, name: 'productName'}, {id: 1, name: 'productName'});
+ * true
+ * isEqual({id: 1, category: { name: 'Other'}}, {id: 1, category: { name: 'Other'}});
+ * true
+ * isEqual({id: 1}, {id: 1, category: { name: 'Other'}});
+ * false
+ */
+const isEqual = (obj1, obj2) => {
+  
+  if (obj1 === obj2) {
+    return true;
+  }
+
+  if (typeof obj1 !== 'object' || obj1 === null || typeof obj2 !== 'object' || obj2 === null) {
+    return false;
+  }
+
+  const obj1Keys = Object.keys(obj1);
+  const obj2Keys = Object.keys(obj2);
+
+  if (obj1Keys.length !== obj2Keys.length) {
+    return false;
+  }
+
+  for (const key of obj1Keys) {
+    if (!obj2.hasOwnProperty(key) || !isEqual(obj1[key], obj2[key])) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
 module.exports = {
   parseJSON,
   get,
-  pick
+  pick,
+  isEqual
 };

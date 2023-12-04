@@ -2,16 +2,16 @@
   "plugins": [],
   "recurseDepth": 10,
   "source": {
-      "includePattern": ".+\\.js$",
-      "excludePattern": "(^|\\/|\\\\)_"
+      "include": ["./plugin_utils/"],
+      "exclude": ["node_modules", "test"]
   },
   "sourceType": "module",
   "tags": {
       "allowUnknownTags": true,
       "dictionaries": ["jsdoc","closure"]
   },
-  "templates": {
-      "cleverLinks": false,
-      "monospaceLinks": false
+  "opts": {
+    "destination": "./jsdocs",
+    "recurse": true
   }
 }

@@ -18,6 +18,7 @@
   "homepage": "https://github.com/murceca/SFCC-Utils#readme",
   "devDependencies": {
     "chai": "^4.3.10",
+    "docdash": "^2.0.2",
     "jsdoc": "^4.0.2",
     "mocha": "^10.2.0"
   }

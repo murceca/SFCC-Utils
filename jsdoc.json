@@ -11,6 +11,7 @@
       "dictionaries": ["jsdoc","closure"]
   },
   "opts": {
+    "template": "node_modules/docdash",
     "destination": "./jsdocs",
     "recurse": true
   }

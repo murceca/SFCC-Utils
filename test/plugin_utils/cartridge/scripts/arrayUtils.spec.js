@@ -3,10 +3,22 @@ const { unique } = require(
 );
 const { expect } = require('chai');
 
-describe('unique', () => {
+describe('unique function with optional callback', () => {
 
   it('empty array', () => {
     expect(unique([])).to.eql([]);
+  });
+
+  it('array with single element', () => {
+    expect(unique(['CZ'])).to.eql(['CZ']);
+  });
+
+  it('all unique elements', () => {
+    expect(unique(['DE', 'BE', 'CZ'])).to.eql(['DE', 'BE', 'CZ']);
+  });
+
+  it('all non-unique elements', () => {
+    expect(unique(['CZ', 'CZ', 'CZ'])).to.eql(['CZ']);
   });
 
   it('string values', () => {
@@ -31,4 +43,28 @@ describe('unique', () => {
     expect(actualResult).to.eql(expectedResult);
   });
 
+  it('unique function with callback and array', () => {
+    const expectedResult = ['DE', 'CZ', 'NL', 'DK'];
+    const actualResult = ['DE', 'BE', 'DE', 'CZ', 'NL', 'DK', 'NL', 'EE'];
+    const callback = item => item[1];
+    const result = unique(actualResult, callback);
+    expect(result).to.deep.equal(expectedResult);
+  });
+
+  it('unique function with callback and array of objects', () => {
+    const expectedResult = [
+      { id: 1, name: 'John' },
+      { id: 2, name: 'Jane' },
+      { id: 3, name: 'Doe' }
+    ];
+    const actualResult =  [
+      { id: 1, name: 'John' },
+      { id: 2, name: 'Jane' },
+      { id: 1, name: 'John' },
+      { id: 3, name: 'Doe' }
+    ];
+    const callback = item => item.id;
+    const result = unique(actualResult, callback);
+    expect(result).to.deep.equal(expectedResult);
+  });
 });

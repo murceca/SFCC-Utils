@@ -43,15 +43,18 @@ const unique = (array, callback) => {
  */
 const flatten = (arrays) => {
   const flattenedArray = [];
-  arrays.forEach(item => {
-    if (Array.isArray(item)) {
-      Array.prototype.push.apply(flattenedArray, item);
-    } else {
-      flattenedArray.push(item);
-    }
-  });
+  const flattenHelper = (arr) => {
+    arr.forEach(item => {
+      if (Array.isArray(item)) {
+        flattenHelper(item);
+      } else {
+        flattenedArray.push(item);
+      }
+    });
+  };
+  flattenHelper(arrays);
   return flattenedArray;
-}
+};
 
 /**
  * Finds the difference between an array and one or more arrays.

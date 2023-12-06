@@ -1,4 +1,4 @@
-const { unique } = require(
+const { unique, flatten } = require(
   '../../../../plugin_utils/cartridge/scripts/arrayUtils'
 );
 const { expect } = require('chai');
@@ -66,5 +66,26 @@ describe('unique function with optional callback', () => {
     const callback = item => item.id;
     const result = unique(actualResult, callback);
     expect(result).to.deep.equal(expectedResult);
+  });
+});
+
+describe('flatten function', () => {
+
+  it('flatten a nested array', () => {
+    const actualResult = flatten([1, [2, 3], [4, [5, 6]]]);
+    const expectedResult = [1, 2, 3, 4, 5, 6];
+    expect(actualResult).to.deep.equal(expectedResult);
+  });
+
+  it('empty arrays', () => {
+    const actualResult = flatten([]);
+    const expectedResult = [];
+    expect(actualResult).to.deep.equal(expectedResult);
+  });
+
+  it('arrays with mixed elements', () => {
+    const actualResult = flatten([1, 'a', [2, 'b', true], [3, [-4, 'c']]]);
+    const expectedResult = [1, 'a', 2, 'b', true, 3, -4, 'c'];
+    expect(actualResult).to.deep.equal(expectedResult);
   });
 });

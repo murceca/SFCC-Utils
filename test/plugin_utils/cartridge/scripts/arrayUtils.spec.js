@@ -1,4 +1,4 @@
-const { unique, flatten } = require(
+const { unique, flatten, difference } = require(
   '../../../../plugin_utils/cartridge/scripts/arrayUtils'
 );
 const { expect } = require('chai');
@@ -88,4 +88,18 @@ describe('flatten function', () => {
     const expectedResult = [1, 'a', 2, 'b', true, 3, -4, 'c'];
     expect(actualResult).to.deep.equal(expectedResult);
   });
+});
+
+describe('difference function', () => {
+
+  it('difference between an array and three arrays', () => {
+    const actualResult = difference(
+      ['DE', 'CZ', 'GB', 'DK'],
+      ['DE', 'BE'],
+      ['DK', 'NL', 'EE']
+    );
+    const expectedResult = ['CZ', 'GB'];
+    expect(actualResult).to.deep.equal(expectedResult);
+  });
+
 });

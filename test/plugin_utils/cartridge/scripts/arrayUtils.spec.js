@@ -92,13 +92,53 @@ describe('flatten function', () => {
 
 describe('difference function', () => {
 
-  it('difference between an array and three arrays', () => {
+  it('an array and two arrays', () => {
     const actualResult = difference(
       ['DE', 'CZ', 'GB', 'DK'],
       ['DE', 'BE'],
       ['DK', 'NL', 'EE']
     );
     const expectedResult = ['CZ', 'GB'];
+    expect(actualResult).to.deep.equal(expectedResult);
+  });
+
+  it('an empty array and two arrays', () => {
+    const actualResult = difference(
+      [],
+      ['DE', 'BE'],
+      ['DK', 'NL', 'EE']
+    );
+    const expectedResult = [];
+    expect(actualResult).to.deep.equal(expectedResult);
+  });
+
+  it('arrays with duplicate elements', () => {
+    const actualResult = difference(
+      ['DE', 'CZ', 'UK', 'GB', 'DK', 'DK', 'DE', 'DE'],
+      ['DE', 'BE'],
+      ['DK', 'NL', 'EE']
+    );
+    const expectedResult = [ 'CZ', 'UK', 'GB' ];
+    expect(actualResult).to.deep.equal(expectedResult);
+  });
+
+  it('non-array arguments', () => {
+    const actualResult = difference(
+      ['DE', 'CZ', 'DK', 'UK', 'GB', 'DK', 'NL'],
+      'non-array-element',
+      ['DK', 'NL', 'EE']
+    );
+    const expectedResult = [ 'DE', 'CZ', 'UK', 'GB' ];
+    expect(actualResult).to.deep.equal(expectedResult);
+  });
+
+  it('duplicates elements in primary array', () => {
+    const actualResult = difference(
+      ['DE', 'CZ', 'CZ', 'CZ', 'DK', 'UK', 'GB', 'GB', 'DK', 'NL', 'GB'],
+      ['DE', 'BE', 'UK'],
+      ['DK', 'NL', 'EE', 'US']
+    );
+    const expectedResult = [ 'CZ', 'GB' ];
     expect(actualResult).to.deep.equal(expectedResult);
   });
 

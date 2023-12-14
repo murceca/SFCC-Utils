@@ -85,7 +85,7 @@ function difference() {
       diffArray.push(item);
     }
   });
-  return unique(diffArray);
+  return diffArray;
 };
 
 

@@ -138,7 +138,7 @@ describe('difference function', () => {
       ['DE', 'BE', 'UK'],
       ['DK', 'NL', 'EE', 'US']
     );
-    const expectedResult = [ 'CZ', 'GB' ];
+    const expectedResult = [ 'CZ', 'CZ', 'CZ', 'GB', 'GB', 'GB' ];
     expect(actualResult).to.deep.equal(expectedResult);
   });
 

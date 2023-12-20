@@ -49,8 +49,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          # Upload only the "docs" folder
-          path: './docs'
+          # Upload only the "jsdocs" folder
+          path: './jsdocs'
 
       - name: Deploy to GitHub Pages
         id: deployment

@@ -5,7 +5,7 @@ const objectUtils = proxyquire.noCallThru().load('../../../../plugin_utils/cartr
   'dw/system/Logger': require('../../../mocks/dw/system/Logger'),
 });
 
-const { parseJSON, get } = objectUtils;
+const { parseJSON, get, pick } = objectUtils;
 
 describe('parseJSON function', () => {
 
@@ -83,3 +83,39 @@ describe('get function', () => {
     expect(result).to.be.undefined;
   });
 });
+
+describe('pick', () => {
+  it('specific properties by name', () => {
+    const sourceObject = { id: 1, name: 'productName', size: 500 };
+    const actualResult = pick(sourceObject, 'id', 'name');
+    expect(actualResult).to.deep.equal({ id: 1, name: 'productName' });
+  });
+
+  it('with filtering function', () => {
+    const sourceObject = { id: 1, name: 'productName', size: 700 };
+    const filterFunction = (key, value) => value > 500;
+    const actualResult = pick(sourceObject, filterFunction);
+    expect(actualResult).to.deep.equal({ size: 700 });
+  });
+
+  it('an empty property list', () => {
+    const sourceObject = { id: 1, name: 'productName', size: 500 };
+    const actualResult = pick(sourceObject);
+    expect(actualResult).to.deep.equal({});
+  });
+
+  it('filtering function that includes all properties', () => {
+    const sourceObject = { id: 1, name: 'productName', size: 500 };
+    const filterFunction = () => true;
+    const actualResult = pick(sourceObject, filterFunction);
+    expect(actualResult).to.deep.equal(sourceObject);
+  });
+
+  it('filtering function that excludes all properties', () => {
+    const sourceObject = { id: 1, name: 'productName', size: 500 };
+    const filterFunction = () => false;
+    const actualResult = pick(sourceObject, filterFunction);
+    expect(actualResult).to.deep.equal({});
+  });
+});
+

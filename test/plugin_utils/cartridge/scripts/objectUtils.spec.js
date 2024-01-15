@@ -5,7 +5,7 @@ const objectUtils = proxyquire.noCallThru().load('../../../../plugin_utils/cartr
   'dw/system/Logger': require('../../../mocks/dw/system/Logger'),
 });
 
-const { parseJSON, get, pick } = objectUtils;
+const { parseJSON, get, pick, isEqual } = objectUtils;
 
 describe('parseJSON function', () => {
 
@@ -125,3 +125,47 @@ describe('pick', () => {
   });
 });
 
+describe('isEqual function', () => {
+  it('equal objects', () => {
+    const sourceObject1 = { id: 1, name: 'productName', size: 500 };
+    const sourceObject2 = { id: 1, name: 'productName', size: 500 };
+    const actualResult = isEqual(sourceObject1, sourceObject2);
+    expect(actualResult).to.be.true;
+  });
+
+  it('empty objects', () => {
+    const sourceObject1 = {};
+    const sourceObject2 = {};
+    const actualResult = isEqual(sourceObject1, sourceObject2);
+    expect(actualResult).to.be.true;
+  });
+
+  it('non-equal objects', () => {
+    const sourceObject1 = { id: 1, name: 'productName'};
+    const sourceObject2 = { id: 1, name: 'productName', size: 800 };
+    const actualResult = isEqual(sourceObject1, sourceObject2);
+    expect(actualResult).to.be.false;
+  });
+
+  it('objects with different keys', () => {
+    const sourceObject1 = { id: 1, name: 'productName' };
+    const sourceObject2 = { id: 1, category: { name: 'Other' } };
+    const actualResult = isEqual(sourceObject1, sourceObject2);
+    expect(actualResult).to.be.false;
+  });
+
+  it('nested equal objects', () => {
+    const sourceObject1 = {id: 1, category: { name: 'Other'}};
+    const sourceObject2 = {id: 1, category: { name: 'Other'}};
+    const actualResult = isEqual(sourceObject1, sourceObject2);
+    expect(actualResult).to.be.true;
+  });
+
+  it('objects with null values', () => {
+    const sourceObject1 = { id: 1, name: null };
+    const sourceObject2 = { id: 1, name: null };
+    const actualResult = isEqual(sourceObject1, sourceObject2);
+    expect(actualResult).to.be.true;
+  });
+
+});

@@ -84,7 +84,7 @@ const pick = function() {
   const primaryObject = arguments[0];
   const args = Array.prototype.slice.call(arguments);
   const argsToPick = args.slice(1);
-  if (typeof(args[1]) !== 'function') {
+  if (typeof(args[1]) !== 'function' && Object.keys(primaryObject).length !== 0) {
       argsToPick.forEach(key => {
       newObject[key] = primaryObject[key];
     });

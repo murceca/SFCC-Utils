@@ -104,6 +104,12 @@ describe('pick', () => {
     expect(actualResult).to.deep.equal({});
   });
 
+  it('an empty object', () => {
+    const sourceObject = {};
+    const actualResult = pick(sourceObject, 'name', 'size');
+    expect(actualResult).to.deep.equal({});
+  });
+
   it('filtering function that includes all properties', () => {
     const sourceObject = { id: 1, name: 'productName', size: 500 };
     const filterFunction = () => true;

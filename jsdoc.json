@@ -2,7 +2,7 @@
   "plugins": [],
   "recurseDepth": 10,
   "source": {
-      "include": ["./plugin_utils/"],
+      "include": ["./README.md", "./plugin_utils/"],
       "exclude": ["node_modules", "test"]
   },
   "sourceType": "module",

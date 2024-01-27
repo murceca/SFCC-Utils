@@ -41,10 +41,7 @@ jobs:
           node-version: 18
 
       - name: Install NPM dependencies
-        run: npm install
-
-      - name: Coveralls tests coverage
-        uses: coverallsapp/github-action@v2.2.3     
+        run: npm install 
 
       - name: Build JSDocs
         run: npm run jsdocs

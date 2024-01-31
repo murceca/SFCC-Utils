@@ -41,12 +41,12 @@ jobs:
           node-version: 18
 
       - name: Install NPM dependencies
-        run: npm install
+        run: npm install 
 
       - name: Build JSDocs
         run: npm run jsdocs
 
-      - name: Upload artifact
+      - name: Upload JSDocs
         uses: actions/upload-pages-artifact@v2
         with:
           # Upload only the "jsdocs" folder

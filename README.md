@@ -20,6 +20,12 @@ All the utils are covered by unit tests using Chai/Mocha.
   - [pick](https://murceca.github.io/SFCC-Utils/global.html#pick)
   - [isEqual](https://murceca.github.io/SFCC-Utils/global.html#isEqual)
 
+`plugin_utils/cartridge/scripts/webUtils`
+
+  - [setCookie](https://murceca.github.io/SFCC-Utils/global.html#setCookie)
+  - [getCookie](https://murceca.github.io/SFCC-Utils/global.html#getCookie)
+  - [deleteCookie](https://murceca.github.io/SFCC-Utils/global.html#deleteCookie)
+
 ## **Usage examples**
 
 ```

@@ -6,7 +6,7 @@
  * @param {array} - The input array.
  * @param {function} [callback] - A callback function applied to each element
  * of the array. It should return a value used for uniqueness comparison.
- * @returns {array} - An array containing unique values based 
+ * @returns {array} An array containing unique values based 
  * on the provided array.
  * 
  * @example
@@ -35,7 +35,7 @@ const unique = (array, callback) => {
  * Flattens an array of arrays into a single-dimensional array.
  * 
  * @param {array} arrays - The array of arrays to flatten.
- * @returns {array} - The flattened array.
+ * @returns {array} The flattened array.
  * 
  * @example
  * flatten([['DE', 'CZ'], 'US', ['BE'], ['DK', 'NL']]);
@@ -61,7 +61,7 @@ const flatten = (arrays) => {
  * 
  * @param {Array} primaryArray - The primary array to compare.
  * @param {...Array} arraysToCompare - One or more arrays to compare with the primary array.
- * @returns {Array} - An array containing the values that are present in the primary array
+ * @returns {Array} An array containing the values that are present in the primary array
  * but not in any of the arrays to compare.
  * 
  * @example

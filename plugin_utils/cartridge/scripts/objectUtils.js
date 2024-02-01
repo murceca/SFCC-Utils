@@ -5,7 +5,7 @@ const Logger = require('dw/system/Logger');
  * but outputs JSON parsing errors into logs.
  * 
  * @param {string} jsonString - JSON string.
- * @returns {object|null} - Parsed JSON value or `null`.
+ * @returns {Object|null} Parsed JSON value or `null`.
  * 
  * @example
  * parseJSON('{"countryCode":"CZ"}');
@@ -26,7 +26,7 @@ const parseJSON = (jsonString) => {
  * Retrieves a property from an object based on the provided path.
  * Never throws any exceptions, but outputs retrieving property errors into logs.
  * 
- * @param {object} obj - The object from which to retrieve the property.
+ * @param {Object} obj - The object from which to retrieve the property.
  * @param {string} path - The path to the desired property.
  * Use dot notation for object properties and square brackets
  * with indices for array elements (e.g., 'property[0].nested.property').
@@ -63,11 +63,11 @@ const get = (obj, path) => {
  * Creates a new object by picking specific properties from a source object
  * based on either a list of property names or a filtering function.
  * 
- * @param {object} primaryObject - The source object from which 
+ * @param {Object} primaryObject - The source object from which 
  * properties will be picked.
  * @param {...(string|function)} args - Either an array of property 
  * names to pick, or a filtering function to determine inclusion.
- * @returns {object} - A new object containing only the selected properties
+ * @returns {Object} A new object containing only the selected properties
  * from the source object.
  * 
  * @example
@@ -105,8 +105,8 @@ const pick = function() {
 /**
  * Recursively checks if two objects are equal.
  *
- * @param {object} obj1 - The first object to compare.
- * @param {object} obj2 - The second object to compare.
+ * @param {Object} obj1 - The first object to compare.
+ * @param {Object} obj2 - The second object to compare.
  * @returns {boolean} Returns `true` if the objects are  equal, `false` otherwise.
  * 
  * @example

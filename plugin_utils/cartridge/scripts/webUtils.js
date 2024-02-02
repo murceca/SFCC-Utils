@@ -18,7 +18,7 @@ const setCookie = (name, value, options) => {
     if (options.path) {
       cookie.setPath(options.path);
     }
-    if (options.maxAge) {
+    if (options.maxAge !== undefined) {
       cookie.setMaxAge(options.maxAge);
     }
   }

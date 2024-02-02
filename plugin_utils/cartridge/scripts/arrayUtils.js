@@ -1,4 +1,10 @@
 /**
+ * Set of utils for working with array in SFCC.
+ * @module arrayUtils
+ */
+
+
+/**
  * Returns an array of unique values based on the provided array.
  * If a callback function is provided, it is applied to each element 
  * of the array to determine uniqueness based on the transformed values.

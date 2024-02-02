@@ -1,3 +1,8 @@
+/**
+ * Set of utils for working with object in SFCC.
+ * @module objectUtils
+ */
+
 const Logger = require('dw/system/Logger');
 
 /**

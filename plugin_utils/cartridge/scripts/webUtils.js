@@ -1,3 +1,8 @@
+/**
+ * Set of utils for working with web/http in SFCC.
+ * @module webUtils
+ */
+
 const Cookie = require('dw/web/Cookie');
 const Cookies = require('dw/web/Cookies');
 

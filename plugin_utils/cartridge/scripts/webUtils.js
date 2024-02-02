@@ -1,5 +1,5 @@
-const cookie = require('dw/web/Cookie');
-const cookies = require('dw/web/Cookies');
+const Cookie = require('dw/web/Cookie');
+const Cookies = require('dw/web/Cookies');
 
 /**
  * Sets a new cookie with the specified name, value, and options.

@@ -92,7 +92,7 @@ function difference() {
     }
   });
   return diffArray;
-};
+}
 
 
 module.exports = {

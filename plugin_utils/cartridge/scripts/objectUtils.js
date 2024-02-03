@@ -62,7 +62,7 @@ const get = (obj, path) => {
   } catch (error) {
     Logger.error(error);
   }
-}
+};
 
 /**
  * Creates a new object by picking specific properties from a source object
@@ -105,7 +105,7 @@ const pick = function() {
   }
   
   return newObject;
-}
+};
 
 /**
  * Recursively checks if two objects are equal.
@@ -140,13 +140,13 @@ const isEqual = (obj1, obj2) => {
   }
 
   for (const key of obj1Keys) {
-    if (!obj2.hasOwnProperty(key) || !isEqual(obj1[key], obj2[key])) {
+    if (!(key in obj2) || !isEqual(obj1[key], obj2[key])) {
       return false;
     }
   }
 
   return true;
-}
+};
 
 module.exports = {
   parseJSON,

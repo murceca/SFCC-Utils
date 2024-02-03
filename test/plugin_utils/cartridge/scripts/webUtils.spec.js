@@ -1,7 +1,6 @@
 const { expect } = require('chai');
 const proxyquire = require('proxyquire');
 const sinon = require('sinon');
-const assert = require('assert');
 
 const Response = require('../../../mocks/dw/system/Response');
 const Request = require('../../../mocks/dw/system/Request');

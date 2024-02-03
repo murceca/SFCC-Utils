@@ -1,5 +1,5 @@
 /**
- * Set of utils for working with object in SFCC.
+ * Set of utils for working with any kind of objects in SFCC.
  * @module objectUtils
  */
 

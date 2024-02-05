@@ -65,9 +65,9 @@ const flatten = (arrays) => {
 /**
  * Finds the difference between an array and one or more arrays.
  * 
- * @param {Array} primaryArray - The primary array to compare.
- * @param {...Array} arraysToCompare - One or more arrays to compare with the primary array.
- * @returns {Array} An array containing the values that are present in the primary array
+ * @param {array} primaryArray - The primary array to compare.
+ * @param {...array} arraysToCompare - One or more arrays to compare with the primary array.
+ * @returns {array} An array containing the values that are present in the primary array
  * but not in any of the arrays to compare.
  * 
  * @example
@@ -93,7 +93,6 @@ function difference() {
   });
   return diffArray;
 }
-
 
 module.exports = {
   unique,

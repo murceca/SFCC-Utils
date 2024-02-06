@@ -26,6 +26,20 @@ All the utils are covered by unit tests using Chai/Mocha.
   - [getCookie](https://murceca.github.io/SFCC-Utils/global.html#getCookie)
   - [deleteCookie](https://murceca.github.io/SFCC-Utils/global.html#deleteCookie)
 
+`plugin_utils/cartridge/scripts/iteratorUtils`
+
+  - [forEach](https://murceca.github.io/SFCC-Utils/global.html#forEach)
+  - [map](https://murceca.github.io/SFCC-Utils/global.html#map)
+  - [filter](https://murceca.github.io/SFCC-Utils/global.html#filter)
+  - [reduce](https://murceca.github.io/SFCC-Utils/global.html#reduce)
+
+`plugin_utils/cartridge/scripts/collectionUtils`
+
+  - [forEach](https://murceca.github.io/SFCC-Utils/global.html#forEach)
+  - [map](https://murceca.github.io/SFCC-Utils/global.html#map)
+  - [filter](https://murceca.github.io/SFCC-Utils/global.html#filter)
+  - [reduce](https://murceca.github.io/SFCC-Utils/global.html#reduce)
+
 ## **Usage examples**
 
 ```

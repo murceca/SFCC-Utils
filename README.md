@@ -9,36 +9,36 @@ All the utils are covered by unit tests using Chai/Mocha.
 
 `plugin_utils/cartridge/scripts/arrayUtils`
 
-  - [unique](https://murceca.github.io/SFCC-Utils/global.html#unique)
-  - [flatten](https://murceca.github.io/SFCC-Utils/global.html#flatten)
-  - [difference](https://murceca.github.io/SFCC-Utils/global.html#difference)
+  - [unique](https://murceca.github.io/SFCC-Utils/module-arrayUtils.html#unique)
+  - [flatten](https://murceca.github.io/SFCC-Utils/module-arrayUtils.html#flatten)
+  - [difference](https://murceca.github.io/SFCC-Utils/module-arrayUtils.html#difference)
 
 `plugin_utils/cartridge/scripts/objectUtils`
 
-  - [parseJSON](https://murceca.github.io/SFCC-Utils/global.html#parseJSON)
-  - [get](https://murceca.github.io/SFCC-Utils/global.html#get)
-  - [pick](https://murceca.github.io/SFCC-Utils/global.html#pick)
-  - [isEqual](https://murceca.github.io/SFCC-Utils/global.html#isEqual)
+  - [parseJSON](https://murceca.github.io/SFCC-Utils/module-objectUtils.html#parseJSON)
+  - [get](https://murceca.github.io/SFCC-Utils/module-objectUtils.html#get)
+  - [pick](https://murceca.github.io/SFCC-Utils/module-objectUtils.html#pick)
+  - [isEqual](https://murceca.github.io/SFCC-Utils/module-objectUtils.html#isEqual)
 
 `plugin_utils/cartridge/scripts/webUtils`
 
-  - [setCookie](https://murceca.github.io/SFCC-Utils/global.html#setCookie)
-  - [getCookie](https://murceca.github.io/SFCC-Utils/global.html#getCookie)
-  - [deleteCookie](https://murceca.github.io/SFCC-Utils/global.html#deleteCookie)
+  - [setCookie](https://murceca.github.io/SFCC-Utils/module-webUtils.html#setCookie)
+  - [getCookie](https://murceca.github.io/SFCC-Utils/module-webUtils.html#getCookie)
+  - [deleteCookie](https://murceca.github.io/SFCC-Utils/module-webUtils.html#deleteCookie)
 
 `plugin_utils/cartridge/scripts/iteratorUtils`
 
-  - [forEach](https://murceca.github.io/SFCC-Utils/global.html#forEach)
-  - [map](https://murceca.github.io/SFCC-Utils/global.html#map)
-  - [filter](https://murceca.github.io/SFCC-Utils/global.html#filter)
-  - [reduce](https://murceca.github.io/SFCC-Utils/global.html#reduce)
+  - [forEach](https://murceca.github.io/SFCC-Utils/module-iteratorUtils.html#forEach)
+  - [map](https://murceca.github.io/SFCC-Utils/module-iteratorUtils.html#map)
+  - [filter](https://murceca.github.io/SFCC-Utils/module-iteratorUtils.html#filter)
+  - [reduce](https://murceca.github.io/SFCC-Utils/module-iteratorUtils.html#reduce)
 
 `plugin_utils/cartridge/scripts/collectionUtils`
 
-  - [forEach](https://murceca.github.io/SFCC-Utils/global.html#forEach)
-  - [map](https://murceca.github.io/SFCC-Utils/global.html#map)
-  - [filter](https://murceca.github.io/SFCC-Utils/global.html#filter)
-  - [reduce](https://murceca.github.io/SFCC-Utils/global.html#reduce)
+  - [forEach](https://murceca.github.io/SFCC-Utils/module-collectionUtils.html#forEach)
+  - [map](https://murceca.github.io/SFCC-Utils/module-collectionUtils.html#map)
+  - [filter](https://murceca.github.io/SFCC-Utils/module-collectionUtils.html#filter)
+  - [reduce](https://murceca.github.io/SFCC-Utils/module-collectionUtils.html#reduce)
 
 ## **Usage examples**
 

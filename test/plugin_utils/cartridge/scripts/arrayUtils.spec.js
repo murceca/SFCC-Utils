@@ -6,31 +6,31 @@ const { expect } = require('chai');
 describe('unique function with optional callback', () => {
 
   it('empty array', () => {
-    expect(unique([])).to.eql([]);
+    expect(unique([])).to.deep.equal([]);
   });
 
   it('array with single element', () => {
-    expect(unique(['CZ'])).to.eql(['CZ']);
+    expect(unique(['CZ'])).to.deep.equal(['CZ']);
   });
 
   it('all unique elements', () => {
-    expect(unique(['DE', 'BE', 'CZ'])).to.eql(['DE', 'BE', 'CZ']);
+    expect(unique(['DE', 'BE', 'CZ'])).to.deep.equal(['DE', 'BE', 'CZ']);
   });
 
   it('all non-unique elements', () => {
-    expect(unique(['CZ', 'CZ', 'CZ'])).to.eql(['CZ']);
+    expect(unique(['CZ', 'CZ', 'CZ'])).to.deep.equal(['CZ']);
   });
 
   it('string values', () => {
     const expectedResult = [ 'DE', 'BE', 'CZ', 'NL', 'DK', 'EE' ];
     const actualResult = unique(['DE', 'BE', 'DE', 'CZ', 'NL', 'DK', 'NL', 'EE']);
-    expect(actualResult).to.eql(expectedResult);
+    expect(actualResult).to.deep.equal(expectedResult);
   });
 
   it('number values', () => {
     const expectedResult = [ 10, 4, 42, 0, -42, 8];
     const actualResult = unique([10, 4, 42, 0, 10, -42, 4, 8, 0, 8]);
-    expect(actualResult).to.eql(expectedResult);
+    expect(actualResult).to.deep.equal(expectedResult);
   });
 
   it('mixed primitive values', () => {
@@ -40,7 +40,7 @@ describe('unique function with optional callback', () => {
     const actualResult = unique([
       10, 'DE', true, 42, null, 0, 10, -42, 'DE', 'ES', 0, 'ES', null, true, false
     ]);
-    expect(actualResult).to.eql(expectedResult);
+    expect(actualResult).to.deep.equal(expectedResult);
   });
 
   it('unique function with callback and array', () => {

@@ -11,7 +11,7 @@ describe('parseJSON function', () => {
 
   it('parse a simple string', () => {
     const actualResult = parseJSON('{"countryCode":"CZ"}');
-    expect(actualResult).to.deep.eql({ "countryCode": "CZ" });
+    expect(actualResult).to.deep.equal({ "countryCode": "CZ" });
   });
 
   it('an empty string', () => {

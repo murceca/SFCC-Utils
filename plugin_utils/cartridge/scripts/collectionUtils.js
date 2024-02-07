@@ -25,7 +25,7 @@ function forEach(collection, callback) {
  * @returns {array} A new array containing the mapped values.
  */
 function map(collection, callback) {
-  iteratorUtils.map(collection.iterator(), callback);
+  return iteratorUtils.map(collection.iterator(), callback);
 }
 
 /**
@@ -37,7 +37,7 @@ function map(collection, callback) {
  * @returns {array} A new array containing the filtered items.
  */
 function filter(collection, callback) {
-  iteratorUtils.filter(collection.iterator(), callback);
+  return iteratorUtils.filter(collection.iterator(), callback);
 }
 
 /**
@@ -50,7 +50,7 @@ function filter(collection, callback) {
  * @returns {*} The reduced value.
  */
 function reduce(collection, callback, initialValue) {
-  iteratorUtils.reduce(collection.iterator(), callback, initialValue);
+  return iteratorUtils.reduce(collection.iterator(), callback, initialValue);
 }
 
 module.exports = {

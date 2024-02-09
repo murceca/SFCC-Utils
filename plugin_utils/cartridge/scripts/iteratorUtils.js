@@ -76,7 +76,11 @@ function reduce(iterator, callback, initialValue) {
   let accumulator = initialValue;
 
   forEach(iterator, (currentItem, index) => {
-    accumulator = callback(accumulator, currentItem, index);
+    if (accumulator === undefined && index === 0) {
+      accumulator = currentItem;
+    } else {
+      accumulator = callback(accumulator, currentItem, index);
+    }
   });
 
   return accumulator;

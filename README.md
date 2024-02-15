@@ -55,3 +55,12 @@ const { isEqual } = require('*/cartridge/scripts/objectUtils');
 isEqual({id: 1, category: { name: 'Other'}}, {id: 1, category: { name: 'Other'}});
 // true
 ```
+
+```
+const { filter } = require('*/cartridge/scripts/collectionUtils');
+
+const czAddresses = filter(
+  customer.addressBook.addresses,
+  address => address.countryCode.value === 'CZ'
+);
+```

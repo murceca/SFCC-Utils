@@ -4,13 +4,22 @@
   "description": "",
   "scripts": {
     "test": "mocha './test/**/*.spec.js'",
-    "jsdocs": "jsdoc -c ./jsdoc.json"
+    "jsdocs": "jsdoc -c ./jsdoc.json",
+    "prepare": "husky && husky install"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": "eslint --fix"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/murceca/SFCC-Utils.git"
   },
-  "author": "",
+  "author": "Svitlana Hryshchuk",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/murceca/SFCC-Utils/issues"
@@ -21,7 +30,9 @@
     "docdash": "^2.0.2",
     "eslint": "^8.56.0",
     "eslint-plugin-mocha": "^10.2.0",
+    "husky": "^8.0.0",
     "jsdoc": "^4.0.2",
+    "lint-staged": "^15.2.2",
     "mocha": "^10.2.0",
     "proxyquire": "^2.1.3"
   },

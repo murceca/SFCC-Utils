@@ -13,8 +13,8 @@ const Logger = require('dw/system/Logger');
  * @returns {Object|null} Parsed JSON value or `null`.
  * 
  * @example
- * parseJSON('{"countryCode":"CZ"}');
- * // {"countryCode":"CZ"}
+ * parseJSON('{ "countryCode":"CZ"}' );
+ * // { "countryCode":"CZ" }
  */
 const parseJSON = (jsonString) => {
   let jsonObject = null;
@@ -89,7 +89,7 @@ const pick = function() {
   const primaryObject = arguments[0];
   const args = Array.prototype.slice.call(arguments);
   const argsToPick = args.slice(1);
-  if (typeof(args[1]) !== 'function' && Object.keys(primaryObject).length !== 0) {
+  if (typeof args[1]  !== 'function' && Object.keys(primaryObject).length !== 0) {
       argsToPick.forEach(key => {
       newObject[key] = primaryObject[key];
     });
@@ -115,15 +115,14 @@ const pick = function() {
  * @returns {boolean} Returns `true` if the objects are  equal, `false` otherwise.
  * 
  * @example
- * isEqual({id: 1, name: 'productName'}, {id: 1, name: 'productName'});
+ * isEqual({ id: 1, name: 'productName'}, { id: 1, name: 'productName'});
  * true
- * isEqual({id: 1, category: { name: 'Other'}}, {id: 1, category: { name: 'Other'}});
+ * isEqual({ id: 1, category: { name: 'Other'}}, { id: 1, category: { name: 'Other'}});
  * true
- * isEqual({id: 1}, {id: 1, category: { name: 'Other'}});
+ * isEqual({ id: 1}, { id: 1, category: { name: 'Other'}});
  * false
  */
 const isEqual = (obj1, obj2) => {
-  
   if (obj1 === obj2) {
     return true;
   }
@@ -148,9 +147,37 @@ const isEqual = (obj1, obj2) => {
   return true;
 };
 
+/**
+ * Deeply clones the given data.
+ * 
+ * @param {*} data - The data to be cloned.
+ * @returns {*} Returns the deeply cloned data.
+ * 
+ * @example
+ * const data = { id: 1, category: { name: 'Dresses' }};
+ * const clone = deepClone(data);
+ * data.category.name = 'Shoes';
+ * clone.category.name;  // 'Dresses'
+ */
+const deepClone = (data) => {
+  if (data === null || typeof data !== 'object') {
+    return data;
+  }
+
+  const clonedData = Array.isArray(data) ? [] : {};
+
+  Object.keys(data).forEach(key => {
+    const value = data[key];
+    clonedData[key] = deepClone(value);
+ });
+
+  return clonedData;
+};
+
 module.exports = {
   parseJSON,
   get,
   pick,
-  isEqual
+  isEqual,
+  deepClone
 };

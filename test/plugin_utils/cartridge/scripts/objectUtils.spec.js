@@ -5,10 +5,9 @@ const objectUtils = proxyquire.noCallThru().load('../../../../plugin_utils/cartr
   'dw/system/Logger': require('../../../mocks/dw/system/Logger'),
 });
 
-const { parseJSON, get, pick, isEqual } = objectUtils;
+const { parseJSON, get, pick, isEqual, deepClone } = objectUtils;
 
 describe('parseJSON function', () => {
-
   it('parse a simple string', () => {
     const actualResult = parseJSON('{"countryCode":"CZ"}');
     expect(actualResult).to.deep.equal({ "countryCode": "CZ" });
@@ -167,5 +166,50 @@ describe('isEqual function', () => {
     const actualResult = isEqual(sourceObject1, sourceObject2);
     expect(actualResult).to.be.true;
   });
+});
 
+describe('deepClone function', () => {
+  it('return null if input is null', () => {
+    const input = null;
+    const result = deepClone(input);
+    expect(result).to.equal(null);
+  });
+
+  it('return undefined if input is undefined', () => {
+    const input = undefined;
+    const result = deepClone(input);
+    expect(result).to.equal(undefined);
+  });
+
+  it('return the same value for primitive types', () => {
+    const input = 42;
+    const result = deepClone(input);
+    expect(result).to.equal(input);
+  });
+
+  it('deeply clone objects', () => {
+    const data = { id: 1, category: { name: 'Dresses' }};
+    const clone = deepClone(data);
+    data.category.name = 'Shoes';
+    expect(clone.category.name).to.equal('Dresses');
+  });
+
+  it('deeply clone arrays', () => {
+    const data = ['CZ', ['UK', { code: 44}], 'GE'];
+    const clone = deepClone(data);
+    data[1][1].code = 42;
+    expect(clone[1][1].code).to.equal(44);
+  });
+
+  it('deeply clone nested objects and arrays', () => {
+    const data = { countryCodes: { 
+      USA: { code: "US", capital: "Washington D.C.", languages: ["English", "Spanish"] },
+      Canada: { code: "CA", capital: "Ottawa", languages: ["English", "French"] },
+      UK: { code: "GB", capital: "London", languages: ["English"] },
+      CzechRepublic: { code: "CZ", capital: "Prague", languages: ["Czech"] }
+    }};
+    const clone = deepClone(data);
+    data.countryCodes.CzechRepublic.languages.push("German");
+    expect(clone.countryCodes.CzechRepublic.languages).to.eql(["Czech"]);
+  });
 });

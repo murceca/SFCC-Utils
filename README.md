@@ -19,6 +19,7 @@ All the utils are covered by unit tests using Chai/Mocha.
   - [get](https://murceca.github.io/SFCC-Utils/module-objectUtils.html#get)
   - [pick](https://murceca.github.io/SFCC-Utils/module-objectUtils.html#pick)
   - [isEqual](https://murceca.github.io/SFCC-Utils/module-objectUtils.html#isEqual)
+  - [deepClone](https://murceca.github.io/SFCC-Utils/module-objectUtils.html#deepClone)
 
 `plugin_utils/cartridge/scripts/webUtils`
 
